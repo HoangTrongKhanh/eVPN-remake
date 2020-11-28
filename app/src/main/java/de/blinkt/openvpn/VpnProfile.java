@@ -1,4 +1,7 @@
-
+/*
+ * Copyright (c) 2012-2016 Arne Schwabe
+ * Distributed under the GNU GPL v2 with additional terms. For full terms see the file doc/LICENSE.txt
+ */
 
 package de.blinkt.openvpn;
 
@@ -55,13 +58,13 @@ import de.blinkt.openvpn.core.VpnStatus;
 import de.blinkt.openvpn.core.X509Utils;
 
 public class VpnProfile implements Serializable, Cloneable {
-    
-    
-    
-    
-    
-    transient public static final long MAX_EMBED_FILE_SIZE = 2048 * 1024; 
-    
+    // Note that this class cannot be moved to core where it belongs since
+    // the profile loading depends on it being here
+    // The Serializable documentation mentions that class name change are possible
+    // but the how is unclear
+    //
+    transient public static final long MAX_EMBED_FILE_SIZE = 2048 * 1024; // 2048kB
+    // Don't change this, not all parts of the program use this constant
     public static final String EXTRA_PROFILEUUID = "de.blinkt.openvpn.profileUUID";
     public static final String INLINE_TAG = "[[INLINE]]";
     public static final String DISPLAYNAME_TAG = "[[NAME]]";
@@ -90,9 +93,9 @@ public class VpnProfile implements Serializable, Cloneable {
     public static final int X509_VERIFY_TLSREMOTE_DN = 2;
     public static final int X509_VERIFY_TLSREMOTE_RDN = 3;
     public static final int X509_VERIFY_TLSREMOTE_RDN_PREFIX = 4;
-    
-    
-    
+    // variable named wrong and should haven beeen transient
+    // but needs to keep wrong name to guarante loading of old
+    // profiles
     public transient boolean profileDeleted = false;
     public int mAuthenticationType = TYPE_KEYSTORE;
     public String mName;
@@ -142,8 +145,8 @@ public class VpnProfile implements Serializable, Cloneable {
     public String mx509UsernameField = null;
 
     private transient PrivateKey mPrivateKey;
-    
-    
+    // Public attributes, since I got mad with getter/setter
+    // set members to default values
     private UUID mUuid;
     public boolean mAllowLocalLAN;
     private int mProfileVersion;
