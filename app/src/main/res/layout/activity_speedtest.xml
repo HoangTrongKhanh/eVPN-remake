@@ -217,27 +217,6 @@
 
 
         </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="40dp"
-            android:visibility="visible">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/all_rights_reserved"
-                android:textColor="#fff"
-                android:textSize="11sp" />
-
-        </RelativeLayout>
     </LinearLayout>
     <com.google.android.gms.ads.AdView
         android:id="@+id/admob_adview"

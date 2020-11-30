@@ -1,16 +1,15 @@
 <resources>
 
-    <string name="app_name" translatable="false">eVPN</string>
-    <string name="interstitial_ad_unit" translatable="false">ca-app-pub-1704956696905394/7963366375</string>
-    <string name="banner_ad_unit" translatable="false">ca-app-pub-1704956696905394/6829004830</string>
-    <string name="admob_app_id" translatable="false">ca-app-pub-1704956696905394~3828644858</string>
+    <string name="app_name" translatable="false">Dark VPN</string>
+    <string name="app_description" translatable="false">Free Ultimate VPN</string>
+    <string name="interstitial_ad_unit" translatable="false">ca-app-pub-3783649614888741/3192633802</string>
+    <string name="banner_ad_unit" translatable="false">ca-app-pub-3783649614888741/8594161961</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-3783649614888741~2220325305</string>
     <string name="url_check_ip_batch">http://ip-api.com/batch</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="developer_email">contact@pharid.com</string>
-    <string name="mainText">eVPN offers Wi-Fi security, online privacy, and access content and apps like Facebook, Netflix, BBC, YouTube, and Skype via proxy.</string>
-    <string name="developer">Pharid</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>

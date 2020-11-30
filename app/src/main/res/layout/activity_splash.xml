@@ -38,7 +38,8 @@
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/activity_background"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"/>
 
         <TextView
             android:id="@+id/splashTexttt"
@@ -49,12 +50,12 @@
             android:text="@string/app_description"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#d3d1d1" />
+            android:textColor="#d3d1d1"
+            android:fontFamily="sans-serif"/>
 
     </LinearLayout>
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/splashh"
@@ -73,7 +74,6 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:text="@string/loading_additional_servers"
-
             android:textAlignment="center"
             android:visibility="gone" />
 
@@ -90,12 +90,11 @@
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/loading_text"
             android:textAllCaps="true"
-            android:textColor="@color/additionalServer" />
+            android:textColor="#3282b8" />
     </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
-
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/splashh"

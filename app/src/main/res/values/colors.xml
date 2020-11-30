@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0c7944</color>
+    <color name="colorPrimary">#1b262c</color>
     <color name="colorPrimaryDark">#0f9d58</color>
     <color name="colorAccent">@color/colorPrimary</color>
     <color name="splash_bg_start">#109D59</color>
@@ -72,4 +72,6 @@
 
     <color name="serverNameBg">#cbecfd</color>
     <color name="serverName">#356690</color>
+
+    <color name="ic_launcher_background">#000000</color>
 </resources>

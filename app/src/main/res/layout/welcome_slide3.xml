@@ -22,7 +22,8 @@
             android:text="PRIVACY and SECURITY"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_title"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +35,8 @@
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif"/>
 
     </LinearLayout>
 

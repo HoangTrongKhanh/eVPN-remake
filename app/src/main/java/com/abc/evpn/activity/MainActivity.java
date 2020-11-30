@@ -212,25 +212,25 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
 
 
-        mCardViewShare = (CardView) findViewById(R.id.CardViewShare);
-
-        mCardViewShare.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                i = new Intent();
-                i.setAction(Intent.ACTION_SEND);
-                i.setType("text/plain");
-                final String text = "Check out "
-                        + getResources().getString(R.string.app_name)
-                        + ", the free app for vpn and proxy with " + getResources().getString(R.string.app_name) + ". https://play.google.com/store/apps/details?id="
-                        + getPackageName();
-                i.putExtra(Intent.EXTRA_TEXT, text);
-                Intent sender = Intent.createChooser(i, "Share " + getResources().getString(R.string.app_name));
-                startActivity(sender);
-            }
-        });
+//        mCardViewShare = (CardView) findViewById(R.id.CardViewShare);
+//
+//        mCardViewShare.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//                i = new Intent();
+//                i.setAction(Intent.ACTION_SEND);
+//                i.setType("text/plain");
+//                final String text = "Check out "
+//                        + getResources().getString(R.string.app_name)
+//                        + ", the free app for vpn and proxy with " + getResources().getString(R.string.app_name) + ". https://play.google.com/store/apps/details?id="
+//                        + getPackageName();
+//                i.putExtra(Intent.EXTRA_TEXT, text);
+//                Intent sender = Intent.createChooser(i, "Share " + getResources().getString(R.string.app_name));
+//                startActivity(sender);
+//            }
+//        });
 
         CardView button1 = (CardView) findViewById(R.id.homeBtnRandomConnection);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -336,7 +336,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         ListView lvCountry = (ListView) view.findViewById(R.id.homeCountryList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, countryListName);
+                android.R.layout.simple_list_item_1, countryListName) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                text.setTextColor(Color.WHITE);
+                return view;
+            }
+        };
 
         lvCountry.setAdapter(adapter);
         lvCountry.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -436,37 +444,37 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             startActivity(new Intent(this, MainActivity.class));
         }  else if (id == R.id.nav_vpnlist){
         }
-        else if (id == R.id.nav_share) {
-            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-            sharingIntent.setType("text/plain");
-            String shareBody = "Best Free Vpn app download now. https://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName();
-            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Share App");
-            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-            startActivity(Intent.createChooser(sharingIntent, "Share via"));
-        }else if (id == R.id.rate_us) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getApplicationContext().getPackageName())));
-        }
-        else if (id == R.id.about_me) {
-            aboutMyApp();
-
-        }
-
-        else if (id == R.id.privacypolicy) {
-            startActivity(new Intent(MainActivity.this, TOSActivity.class));
-
-        }
-
-        else if (id == R.id.moreapp) {
-
-            Uri uri = Uri.parse("market://search?q=pub:" + "PA Production");
-            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-            try {
-                startActivity(goToMarket);
-            } catch (ActivityNotFoundException e) {
-                startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("http://play.google.com/store/search?q=pub:" + "PA Production")));
-            }
-        }
+//        else if (id == R.id.nav_share) {
+//            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+//            sharingIntent.setType("text/plain");
+//            String shareBody = "Best Free Vpn app download now. https://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName();
+//            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Share App");
+//            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+//            startActivity(Intent.createChooser(sharingIntent, "Share via"));
+//        }else if (id == R.id.rate_us) {
+//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getApplicationContext().getPackageName())));
+//        }
+//        else if (id == R.id.about_me) {
+//            aboutMyApp();
+//
+//        }
+//
+//        else if (id == R.id.privacypolicy) {
+//            startActivity(new Intent(MainActivity.this, TOSActivity.class));
+//
+//        }
+//
+//        else if (id == R.id.moreapp) {
+//
+//            Uri uri = Uri.parse("market://search?q=pub:" + "PA Production");
+//            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+//            try {
+//                startActivity(goToMarket);
+//            } catch (ActivityNotFoundException e) {
+//                startActivity(new Intent(Intent.ACTION_VIEW,
+//                        Uri.parse("http://play.google.com/store/search?q=pub:" + "PA Production")));
+//            }
+//        }
 
 
 
