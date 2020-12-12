@@ -28,14 +28,11 @@ import android.support.v7.app.AlertDialog;
 import android.util.Base64;
 import android.util.Log;
 
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,7 +79,6 @@ public class VPNInfoActivity extends BaseActivity {
     private Button serverConnect;
     private TextView lastLog;
     private ProgressBar connectingProgress;
-    private PopupWindow popupWindow;
     private LinearLayout parentLayout;
     private TextView trafficInTotally;
     private TextView trafficOutTotally;
@@ -572,9 +568,6 @@ public class VPNInfoActivity extends BaseActivity {
         super.onDestroy();
         unregisterReceiver(br);
         unregisterReceiver(trafficReceiver);
-        if ( popupWindow != null && popupWindow.isShowing() ){
-            popupWindow.dismiss();
-        }
     }
 
     @Override
@@ -592,62 +585,6 @@ public class VPNInfoActivity extends BaseActivity {
     }
 
     private void chooseAction() {
-        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.conected,null);
-
-        popupWindow = new PopupWindow(
-                view,
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT
-        );
-
-        popupWindow.setOutsideTouchable(false);
-        popupWindow.setFocusable(true);
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
-
-        Button marketButton = (Button)view.findViewById(R.id.successPopUpBtnPlayMarket);
-        marketButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendTouchButton("successPopUpBtnPlayMarket");
-                final String appPackageName = getPackageName();
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                }
-            }
-        });
-
-
-        ((Button)view.findViewById(R.id.successPopUpBtnBrowser)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendTouchButton("successPopUpBtnBrowser");
-                startActivity( new Intent( Intent.ACTION_VIEW, Uri.parse("http://google.com")));
-            }
-        });
-        ((Button)view.findViewById(R.id.successPopUpBtnDesktop)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendTouchButton("successPopUpBtnDesktop");
-                Intent startMain = new Intent(Intent.ACTION_MAIN);
-                startMain.addCategory(Intent.CATEGORY_HOME);
-                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(startMain);
-            }
-        });
-        ((Button)view.findViewById(R.id.successPopUpBtnClose)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendTouchButton("successPopUpBtnClose");
-                popupWindow.dismiss();
-            }
-        });
-
-
-        popupWindow.showAtLocation(parentLayout, Gravity.CENTER,0, 0);
-
     }
 
 
